@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Chunktional : Functional Macros for C" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Chunktional</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Altece/Chunktional">View on GitHub</a>
+
+          <h1 id="project_title">Chunktional</h1>
+          <h2 id="project_tagline">Functional Macros for C</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Altece/Chunktional/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Altece/Chunktional/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="chunktional" class="anchor" href="#chunktional"><span class="octicon octicon-link"></span></a>Chunktional</h1>
+
+<p>Chunktional is a collection of macros that can make functional style programming in C convenient.</p>
+
+<h2>
+<a name="abstract-data-types" class="anchor" href="#abstract-data-types"><span class="octicon octicon-link"></span></a>Abstract Data Types</h2>
+
+<p>Uisng the <code>datatype(dataname, ...)</code>, <code>datatypeempty(dataname, option)</code>, and <code>datatypedefine(dataname, option, structure)</code> macros, you can create Haskell style abstract data types.</p>
+
+<p>Haskell Example:</p>
+
+<pre><code>datatype Maybe = None | Just x
+
+x = None
+y = Just 10
+</code></pre>
+
+<p>Chunktional Example:</p>
+
+<pre><code>datatype(MaybeInt, NoneInt, JustInt);
+datatypeempty(MaybeInt, NoneInt);
+datatypedefine(MaybeInt, JustInt, {int number;});
+
+int main() {
+    MaybeInt *x = mkdatatype(NoneInt);
+    MaybeInt *y = mkdatatype(JustInt, 10);
+
+    free(x);
+    free(y);
+
+    return 0;
+}
+</code></pre>
+
+<h2>
+<a name="pattern-matching" class="anchor" href="#pattern-matching"><span class="octicon octicon-link"></span></a>Pattern Matching</h2>
+
+<p>Using the <code>caseof(value)</code>, <code>endcaseof</code>, <code>where(option, result)</code>, <code>whereatom(option)</code>, and <code>otherwise</code> macros, you can create a kind of case-of statement for use with the abstract data types.</p>
+
+<p>Haskell Example:</p>
+
+<pre><code>f :: Maybe Int -&gt; Int
+f m = case m of
+        None -&gt; 0
+        Just x -&gt; x
+</code></pre>
+
+<p>Chunktional Example:</p>
+
+<pre><code>int f(MaybeInt *m) {
+    caseof(m)
+        whereatom(NoneInt) return 0;
+        where(JustInt, j) return j-&gt;number;
+    endcaseof;
+}
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Chunktional maintained by <a href="https://github.com/Altece">Altece</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
