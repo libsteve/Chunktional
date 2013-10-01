@@ -4,7 +4,7 @@ Chunktional is a collection of macros that can make functional style programming
 
 ##Abstract Data Types
 
-Uisng the `datatype(dataname, ...)`, `datatypeempty(dataname, option)`, and `datatypedefine(dataname, option, structure)` macros, you can create Haskell style abstract data types.
+Uisng the `datatype(dataname, ...)`, `datatypeatom(dataname, option)`, and `datatypedefine(dataname, option, structure)` macros, you can create Haskell style abstract data types.
 
 Haskell Example:
 

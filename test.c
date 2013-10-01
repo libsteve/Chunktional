@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 datatype(MaybeInt, NoneInt, JustInt);
-datatypeempty(MaybeInt, NoneInt);
+datatypeatom(MaybeInt, NoneInt);
 datatypedefine(MaybeInt, JustInt, {int number;});
 
 void f(MaybeInt *m) {

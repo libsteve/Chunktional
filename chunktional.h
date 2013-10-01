@@ -15,7 +15,7 @@
 		*((struct option *)value) = raw; \
 		return value; \
 	}
-#define datatypeempty(dataname, option) datatypedefine(dataname, option, {})
+#define datatypeatom(dataname, option) datatypedefine(dataname, option, {})
 
 #define allocdatatype(option) ((void *)calloc(1, sizeof(struct option)))
 #define __mkdatatype(option, ...) ((struct option) {option, {__VA_ARGS__}})
