@@ -21,10 +21,9 @@
 #define __mkdatatype(option, ...) ((struct option) {option, {__VA_ARGS__}})
 #define mkdatatype(option, ...) init ## option (mk ## option (), __mkdatatype(option, ## __VA_ARGS__))
 
-#define caseof(value) { void *___VALUE___ = value; switch(value->type) {
-#define endcaseof }}
-#define where(option, result) case option: { struct option *result = (struct option *)___VALUE___;
-#define whereis(option) case option: {
-#define endwhere ;} break
+#define caseof(value) { void *___VALUE___ = value; switch((int)value->type) { case -99: {
+#define endcaseof ;} break; }}
+#define where(option, result) ;} break; case option: { struct option *result = (struct option *)___VALUE___;
+#define whereatom(option) ;} break; case option: {
 
 #endif
