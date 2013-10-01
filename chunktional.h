@@ -5,7 +5,7 @@
 #include <stdarg.h>
 
 #define datatype(dataname, ...) enum dataname { __VA_ARGS__ }; typedef struct { enum dataname type; } dataname;
-#define datatypedefine(dataname, option, information) struct option { enum dataname type; struct information; }; \
+#define datatypedefine(dataname, option, structure) struct option { enum dataname type; struct structure; }; \
 	static inline dataname *mk ## option () { \
 		void *v = allocdatatype(option); \
 		((struct option *)v)->type = option; \
