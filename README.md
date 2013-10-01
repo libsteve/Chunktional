@@ -4,7 +4,7 @@ Chunktional is a collection of macros that can make functional style programming
 
 ##Abstract Data Types
 
-Uisng the `datatype(dataname, ...)`, `datatypeempty(dataname, option)`, and `datatypedefine(dataname, option, structure)` macros, you can create Haskell style abstract data types.
+Uisng the `datatype(dataname, ...)`, `datatypeempty(dataname, option)`, `datatypedefine(dataname, option, structure)`, and `mkdatatype(option, ...)` macros, you can create Haskell style abstract data types.
 
 Haskell Example:
 
@@ -23,15 +23,15 @@ Chunktional Example:
 		MaybeInt *x = mkdatatype(NoneInt);
 	    MaybeInt *y = mkdatatype(JustInt, 10);
 
-		free(x);
-		free(y);
+		freedata(x);
+		freedata(y);
 
 		return 0;
 	}
 
 ##Pattern Matching
 
-Using the `caseof(value)`, `endcaseof`, `where(option, result)`, and `whereatom(option)` macros, you can create a kind of case-of statement for use with the abstract data types.
+Using the `caseof(value)`, `endcaseof`, `where(option, result)`, `whereatom(option)`, and `otherwise` macros, you can create a kind of case-of statement for use with the abstract data types.
 
 Haskell Example:
 

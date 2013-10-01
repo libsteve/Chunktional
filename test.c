@@ -19,8 +19,8 @@ int main() {
     f(x);
     f(y);
 
-    free(x);
-    free(y);
+    freedata(x);
+    freedata(y);
 
     return 0;
 }
