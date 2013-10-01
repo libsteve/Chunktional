@@ -31,7 +31,7 @@ Chunktional Example:
 
 ##Pattern Matching
 
-Using the `caseof(value)`, `endcaseof`, `where(option, result)`, and `whereatom(option)` macros, you can create a kind of case-of statement for use with the abstract data types.
+Using the `caseof(value)`, `endcaseof`, `where(option, result)`, `whereatom(option)`, and `otherwise` macros, you can create a kind of case-of statement for use with the abstract data types.
 
 Haskell Example:
 

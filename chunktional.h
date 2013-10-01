@@ -25,5 +25,6 @@
 #define endcaseof ;} break; }}
 #define where(option, result) ;} break; case option: { struct option *result = (struct option *)___VALUE___;
 #define whereatom(option) ;} break; case option: {
+#define otherwise ;} break; default: {
 
 #endif
