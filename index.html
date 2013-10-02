@@ -39,7 +39,7 @@
 <h2>
 <a name="abstract-data-types" class="anchor" href="#abstract-data-types"><span class="octicon octicon-link"></span></a>Abstract Data Types</h2>
 
-<p>Uisng the <code>datatype(dataname, ...)</code>, <code>datatypeempty(dataname, option)</code>, and <code>datatypedefine(dataname, option, structure)</code> macros, you can create Haskell style abstract data types.</p>
+<p>Uisng the <code>datatype(dataname, ...)</code>, <code>datatypeatom(dataname, option)</code>, and <code>datatypedefine(dataname, option, structure)</code> macros, you can create Haskell style abstract data types.</p>
 
 <p>Haskell Example:</p>
 
@@ -86,6 +86,30 @@ f m = case m of
         whereatom(NoneInt) return 0;
         where(JustInt, j) return j-&gt;number;
     endcaseof;
+    return 0; // we unfortunately need a dummy return value to avoid a compiler warning
+}
+</code></pre>
+
+<h2>
+<a name="closures" class="anchor" href="#closures"><span class="octicon octicon-link"></span></a>Closures</h2>
+
+<p>Using the <code>closure(type, fn, context, ...)</code> and <code>call(fn, context, ...)</code> macros, you can create a kind of closure over desired values for functions. This can be useful to easily create context for function calls.</p>
+
+<p>Haskell Example:</p>
+
+<pre><code>f :: Int -&gt; Int
+f x = fhelper 5
+    where fhelper y = x + y
+</code></pre>
+
+<p>Chunktional Example:</p>
+
+<pre><code>closure(int, fhelper, {int x;}, int y) {
+    return closure.x + y;
+}
+
+int f(int x) {
+    return call(fhelper, {x}, 5);
 }
 </code></pre>
       </section>
