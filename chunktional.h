@@ -27,4 +27,7 @@
 #define whereatom(option) ;} break; case option: {
 #define otherwise ;} break; default: {
 
+#define closure(type, fn, context, ...) struct _ ## fn ## _context context; type fn (struct _ ## fn ## _context closure, ## __VA_ARGS__)
+#define call(fn, context, ...) fn((struct _ ## fn ## _context)context, ## __VA_ARGS__)
+
 #endif

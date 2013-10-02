@@ -47,4 +47,25 @@ Chunktional Example:
 	        whereatom(NoneInt) return 0;
 	        where(JustInt, j) return j->number;
 	    endcaseof;
+	    return 0; // we unfortunately need a dummy return value to avoid a compiler warning
+	}
+
+##Closures
+
+Using the `closure(type, fn, context, ...)` and `call(fn, context, ...)` macros, you can create a kind of closure over desired values for functions. This can be useful to easily create context for function calls.
+
+Haskell Example:
+
+	f :: Int -> Int
+	f x = fhelper 5
+		where fhelper y = x + y
+
+Chunktional Example:
+
+	closure(int, fhelper, {int x;}, int y) {
+		return closure.x + y;
+	}
+
+	int f(int x) {
+		return call(fhelper, {x}, 5);
 	}
