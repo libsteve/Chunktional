@@ -1,8 +1,8 @@
-#Chunktional
+# Chunktional
 
 Chunktional is a collection of macros that can make functional style programming in C convenient.
 
-##Abstract Data Types
+## Abstract Data Types
 
 Uisng the `datatype(dataname, ...)`, `datatypeatom(dataname, option)`, and `datatypedefine(dataname, option, structure)` macros, you can create Haskell style abstract data types.
 
@@ -29,7 +29,7 @@ Chunktional Example:
 		return 0;
 	}
 
-##Pattern Matching
+## Pattern Matching
 
 Using the `caseof(value)`, `endcaseof`, `where(option, result)`, `whereatom(option)`, and `otherwise` macros, you can create a kind of case-of statement for use with the abstract data types.
 
@@ -50,7 +50,7 @@ Chunktional Example:
 	    return 0; // we unfortunately need a dummy return value to avoid a compiler warning
 	}
 
-##Closures
+## Closures
 
 Using the `closure(type, fn, context, ...)` and `call(fn, context, ...)` macros, you can create a kind of closure over desired values for functions. This can be useful to easily create context for function calls.
 
