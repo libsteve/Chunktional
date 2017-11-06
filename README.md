@@ -44,10 +44,10 @@ Chunktional Example:
 
 	int f(MaybeInt *m) {
 		caseof(m)
-	        whereatom(NoneInt) return 0;
-	        where(JustInt, j) return j->number;
-	    endcaseof;
-	    return 0; // we unfortunately need a dummy return value to avoid a compiler warning
+	        	whereatom(NoneInt) return 0;
+	        	where(JustInt, j) return j->number;
+		endcaseof;
+		return 0; // we unfortunately need a dummy return value to avoid a compiler warning
 	}
 
 ## Closures
